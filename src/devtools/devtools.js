@@ -81,7 +81,7 @@ class App extends Component {
   }
 
   storeDataToTree = (data, arr) => {
-    console.log('storeData in storeDataToTree: ', data);
+    //console.log('storeData in storeDataToTree: ', data);
     let storeStart = {
       name : 'Store',
       children : []
@@ -122,8 +122,9 @@ class App extends Component {
       if (typeof msg !== 'object') return;
       curData = msg; // assign global data object
     });
-    console.log('Data: ',curData);
+    
     if(curData.data) {
+      console.log('Component Data: ',curData);
       let updateData = curData.data[0];
       let treeData = [];
       console.log('REDUX-STORE: ', curData.reduxStore); //checking if we are getting the redux store
@@ -145,7 +146,7 @@ class App extends Component {
       let temp = updatedStore[updatedStore.length - 1][1];
       let storeData = [];
       if(str === 'store') this.storeDataToTree(temp, storeData);
-      console.log('storeDataToTree: ', storeData);
+      //console.log('storeDataToTree: ', storeData);
       if(storeData.length) {
         this.setState({
           storeHistory: storeData
